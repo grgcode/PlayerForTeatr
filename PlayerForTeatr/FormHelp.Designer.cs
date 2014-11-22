@@ -41,9 +41,11 @@
             this.textBoxHelp.Location = new System.Drawing.Point(10, 0);
             this.textBoxHelp.Multiline = true;
             this.textBoxHelp.Name = "textBoxHelp";
+            this.textBoxHelp.ReadOnly = true;
             this.textBoxHelp.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxHelp.Size = new System.Drawing.Size(423, 368);
             this.textBoxHelp.TabIndex = 0;
+            this.textBoxHelp.TabStop = false;
             this.textBoxHelp.Text = resources.GetString("textBoxHelp.Text");
             // 
             // FormHelp
