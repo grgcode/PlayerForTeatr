@@ -152,9 +152,9 @@ namespace PlayerForTeatr
         {
             try
             {
-                //HandleArrowKeys(e);
                 if (checkBoxFast.Checked)
                 {
+                    //handled by HandleArrowKeys(e) in mKeyboardLogger_KeyDown event
                     e.Handled = true;
                 }
             }
@@ -164,23 +164,12 @@ namespace PlayerForTeatr
                 textBoxError.Text += ex.ToString();
             }
         }
+
         private void HandleArrowKeys(KeyEventArgs e)
         {
                 if (checkBoxFast.Checked)
                 {
-                    if (e.KeyCode == Keys.Enter)
-                    {//play/stop
-                        if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                        {
-                            buttonStop.PerformClick();
-                        }
-                        else
-                        {
-                            buttonPlay.PerformClick();
-                        }
-                        e.Handled = true;
-                    }
-                    else if (e.KeyCode == Keys.Down)
+                    if (e.KeyCode == Keys.Down)
                     {//next
                         buttonNext.PerformClick();
                         e.Handled = true;
@@ -376,19 +365,43 @@ namespace PlayerForTeatr
 
         private void listBoxPlayList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (e.NewValue != e.CurrentValue)
+            try
             {
-                CheckedListBox list = (CheckedListBox)sender;
-                PlayListItem item = (PlayListItem)list.SelectedItem;
+                if (e.NewValue != e.CurrentValue)
+                {
+                    CheckedListBox list = (CheckedListBox)sender;
+                    PlayListItem item = (PlayListItem)list.SelectedItem;
 
-                if (e.NewValue == CheckState.Checked)
-                {
-                    item.Played = true;
+                    if (e.NewValue == CheckState.Checked)
+                    {
+                        item.Played = true;
+                    }
+                    else
+                    {
+                        item.Played = false;
+                    }
                 }
-                else
-                {
-                    item.Played = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                if (textBoxError.Text != string.Empty) textBoxError.Text += "\n";
+                textBoxError.Text += ex.ToString();
+            }
+
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Display f as a modeless dialog
+                FormHelp f = new FormHelp();
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+                if (textBoxError.Text != string.Empty) textBoxError.Text += "\n";
+                textBoxError.Text += ex.ToString();
             }
         }
     }

@@ -117,37 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>186, 17</value>
-  </metadata>
-  <data name="axWindowsMediaPlayer1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="textBoxHelp.Text" xml:space="preserve">
     <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAuQAAAAIB
-        AAAAAQAAAAAAAAAAAAAAAKQAAAAAAwAACAACAAAAAAAFAAAAAAAAAPA/AwAAAAAABQAAAAAAAAAAAAgA
-        AgAAAAAAAwABAAAACwD//wMAAAAAAAsA//8IAAIAAAAAAAMAMgAAAAsAAAAIAAoAAABmAHUAbABsAAAA
-        CwD//wsAAAALAP//CwD//wsAAAAIAAIAAAAAAAgAAgAAAAAACAACAAAAAAAIAAIAAAAAAAsAAABUOAAA
-        tgwAAAs=
-</value>
+1. Type or click Browse button to find a Play List location (folder with mp3 files to load as Play List). You can also drag a folder from Windows Explorer and drop to Play List.
+
+2. mp3 files are always displayed in alphabetical order.
+
+3. Check Fast Navigation to start cupture all keys in all programs.
+
+4. Uncheck Fast Navigation to use keys in other programs without unexpected side effects in Player.
+
+5. Fast Navigation keys:
+
+	Down Arrow   =   Select Next song on Play List
+
+	Right Arrow   =   Play currently selected song in Play List
+
+	Left Arrow   =   Stop playing</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonClearError.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAF0SURBVGhD7ZdBcQMxDEUXQiEEQiAUQiAEQiEEQiAUQiEEQiEUQhg0egfNaDRaj72btX3Qm/mH
-        ZJO1ZH/J9pIkSZIkSZI08yH6NDqJtsK7LqKb6Ef0JToMBruL/gP9iq6iWkj8W2TfwWfGOAxmyQ4Y6U9E
-        cGvw7CGy/3mKWIXDYYbtwCWRrAWb+cAR3+2xYDM1q6BSS+BrZtk/90l2AxtgFR9QpCjwbpYpwcy2rIaK
-        Yj+LpgH/0v6iYL0I/tAus4eou3hRE1Pj+3qklr2iKy31MFUNQGl/iLoQHWyaWsD7PkAVNQGRtSj84TCL
-        pf3AHimiJOzzIawd7FDUcXwSJD8M+r8Nxgrfr51vfBLDjhOl2S8Fhe3Y0PS3JDukoNe8X9NhWB3bnYbs
-        DTZoq9pgbPdiRbpjg1Zp26zF2rDrnQBs4KotO6zWQ3cb2UJEW7sJSVMPrEZXuJBo8Hs9zI2t1X5vgVmn
-        r7+jDU53wEuSJEmSJJmbZXkB4xL4vnkUQa4AAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>59</value>
-  </metadata>
 </root>
