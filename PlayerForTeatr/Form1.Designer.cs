@@ -254,6 +254,7 @@
             this.textBoxError.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxError.Multiline = true;
             this.textBoxError.Name = "textBoxError";
+            this.textBoxError.ReadOnly = true;
             this.textBoxError.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxError.Size = new System.Drawing.Size(527, 39);
             this.textBoxError.TabIndex = 0;

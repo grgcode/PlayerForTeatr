@@ -83,6 +83,7 @@ namespace PlayerForTeatr
                 listBoxPlayList.Items.Clear();
                 if (textBoxFolder.Text != string.Empty)
                 {
+                    //mp3
                     string[] files = Directory.GetFiles(textBoxFolder.Text, "*.mp3");
                     foreach (string f in files)
                     {
@@ -91,6 +92,12 @@ namespace PlayerForTeatr
                     if (listBoxPlayList.Items.Count > 0)
                     {
                         listBoxPlayList.SelectedIndex = 0;
+                    }
+                    //doc, docx
+                    string[] docFiles = Directory.GetFiles(textBoxFolder.Text, "*.doc?");
+                    foreach (string f in docFiles)
+                    {
+                        System.Diagnostics.Process.Start(f);
                     }
                 }
             }
