@@ -18,13 +18,50 @@ namespace PlayerForTeatr
         public Form1()
         {
             InitializeComponent();
+
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height - 10;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] args = Environment.GetCommandLineArgs();
+                if (args.Length > 1)
+                {
+                    // try to load files from a folder passed as command line parameter
+                    if (Directory.Exists(args[1]))
+                    {
+                        textBoxFolder.Text = args[1];
+                        LoadList();
+                    }
+                    else 
+                    {
+                        if (textBoxError.Text != string.Empty) textBoxError.Text += "\n";
+                        textBoxError.Text += "Can't find/access folder: " + args[1];
+                    }
+                }
+                checkBoxFast.Checked = true;
+            }
+            catch (Exception ex)
+            {
+                if (textBoxError.Text != string.Empty) textBoxError.Text += "\n";
+                textBoxError.Text += ex.ToString();
+            }
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
             try
             {
-                folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
+                if (textBoxFolder.Text != string.Empty && Directory.Exists(textBoxFolder.Text))
+                {
+                    folderBrowserDialog1.SelectedPath = textBoxFolder.Text;
+                }
+                else
+                {
+                    folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
+                }
                 folderBrowserDialog1.Description = "Select Folder to load mp3 files list (play list)";
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -47,7 +84,6 @@ namespace PlayerForTeatr
                 if (textBoxFolder.Text != string.Empty)
                 {
                     string[] files = Directory.GetFiles(textBoxFolder.Text, "*.mp3");
-                    //listBoxPlayList.Items.AddRange(files);
                     foreach (string f in files)
                     {
                         listBoxPlayList.Items.Add(new PlayListItem(f));
@@ -76,6 +112,11 @@ namespace PlayerForTeatr
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            selectNext();
+        }
+
+        private void selectNext()
+        {
             try
             {
                 if (listBoxPlayList.Items.Count > 0)
@@ -103,6 +144,17 @@ namespace PlayerForTeatr
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            playSelected();
+        }
+
+        private bool playSelectedInProgress = false;
+        private void playSelected()
+        {
+            if (playSelectedInProgress == true)
+            {
+                Application.DoEvents();
+            }
+            playSelectedInProgress = true;
             try
             {
                 if (listBoxPlayList.Items.Count > 0)
@@ -113,8 +165,8 @@ namespace PlayerForTeatr
                     }
                     PlayListItem item = (PlayListItem)listBoxPlayList.SelectedItem;
                     axWindowsMediaPlayer1.URL = item.FullFileName;
-                    //item.Played = true;
                     listBoxPlayList.SetItemChecked(listBoxPlayList.SelectedIndex, true);
+                    selectNext();
                 }
             }
             catch (Exception ex)
@@ -122,9 +174,18 @@ namespace PlayerForTeatr
                 if (textBoxError.Text != string.Empty) textBoxError.Text += "\n";
                 textBoxError.Text += ex.ToString();
             }
+            finally
+            {
+                playSelectedInProgress = false;
+            }
         }
 
         private void buttonStop_Click(object sender, EventArgs e)
+        {
+            stopPlaying();
+        }
+
+        private void stopPlaying()
         {
             try
             {
@@ -171,7 +232,7 @@ namespace PlayerForTeatr
                 {
                     if (e.KeyCode == Keys.Down)
                     {//next
-                        buttonNext.PerformClick();
+                        selectNext();
                         e.Handled = true;
                     }
                     else if (e.KeyCode == Keys.Up)
@@ -181,12 +242,12 @@ namespace PlayerForTeatr
                     }
                     else if (e.KeyCode == Keys.Right)
                     {//play
-                        buttonPlay.PerformClick();
+                        playSelected();
                         e.Handled = true;
                     }
                     else if (e.KeyCode == Keys.Left)
                     {//stop
-                        buttonStop.PerformClick();
+                        stopPlaying();
                         e.Handled = true;
                     }
                 }
@@ -404,5 +465,6 @@ namespace PlayerForTeatr
                 textBoxError.Text += ex.ToString();
             }
         }
+
     }
 }

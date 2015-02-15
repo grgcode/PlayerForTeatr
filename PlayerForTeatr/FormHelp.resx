@@ -129,10 +129,14 @@
 
 5. Fast Navigation keys:
 
-	Down Arrow   =   Select Next song on Play List
+	Right Arrow   =   PLAY currently selected song in Play List
 
-	Right Arrow   =   Play currently selected song in Play List
+	Left Arrow   =   STOP playing
 
-	Left Arrow   =   Stop playing</value>
+	Down Arrow   =   Select NEXT song on Play List
+
+	Up Arrow   =   Select PREVIOUS song on Play List
+
+</value>
   </data>
 </root>
