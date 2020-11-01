@@ -60,7 +60,7 @@ namespace PlayerForTeatr
                 }
                 else
                 {
-                    folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
+                    folderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop;                   
                 }
                 folderBrowserDialog1.Description = "Select Folder to load mp3 files list (play list)";
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
